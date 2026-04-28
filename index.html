@@ -7,52 +7,13 @@
 
 <body style="margin:0; background:black;">
 
-<!-- Message -->
-<div style="
-  position:fixed;
-  top:10px;
-  width:100%;
-  text-align:center;
-  color:white;
-  font-size:14px;
-  z-index:20;
-">
-  आवाज के लिए एक बार टॅप करें
-</div>
-
-<!-- Tap Layer -->
-<div id="tapLayer" style="
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  z-index:10;
-  background:transparent;
-"></div>
-
-<!-- Video -->
 <iframe 
-  id="player"
   style="position:fixed; top:0; left:0; width:100%; height:100%;"
-  src="https://www.youtube.com/embed/videoseries?list=PLI8R1n5dHpES-KloBj5cGVVrEgDfaXRwQ&autoplay=1&mute=1&enablejsapi=1"
+  src="https://www.youtube.com/embed/videoseries?list=PLI8R1n5dHpES-KloBj5cGVVrEgDfaXRwQ"
   frameborder="0"
-  allow="autoplay; encrypted-media"
+  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen>
 </iframe>
-
-<script>
-  document.getElementById("tapLayer").addEventListener("click", function () {
-    var iframe = document.getElementById("player");
-    iframe.contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
-
-    // Hide tap layer
-    this.style.display = "none";
-
-    // Hide message also
-    document.querySelector("div").style.display = "none";
-  });
-</script>
 
 </body>
 </html>
